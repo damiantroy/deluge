@@ -1,14 +1,16 @@
 # Deluge BitTorrent Client CentOS Container
 
-| Config | Value |
-| --- | ----- |
-| -e PUID | UID of the non-root user (Default: 1001)
-| -e PGID | GID of the non-root group (Default: 1001)
-| -e TZ | Timezone (Default: Australia/Melbourne)
-| -v /config | Configuration directory
-| -v /videos | Videos base directory
+## Configuration
+| Command | Config   | Description
+| ------- | -------- | -----
+| ENV     | PUID     | UID of the runtime user (Default: 1001)
+| ENV     | PGID     | GID of the runtime group (Default: 1001)
+| ENV     | TZ       | Timezone (Default: Australia/Melbourne)
+| VOLUME  | /config  | Configuration directory
+| VOLUME  | /videos  | Videos directory, including 'downloads/'
+| EXPOSE  | 8112/tcp | deluge-web
 
-Example build and run inside a pod:
+## Example
 ```shell script
 TZ=Australia/Melbourne
 PUID=1001
