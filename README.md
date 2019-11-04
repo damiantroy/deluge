@@ -1,15 +1,20 @@
 # Deluge BitTorrent Client CentOS Container
 
-| Resource | Exported |
+| Config | Value |
 | --- | ----- |
-| Volumes | /config, /videos
-| Ports | 8112
+| -e PUID | UID of the non-root user (Default: 1001)
+| -e PGID | GID of the non-root group (Default: 1001)
+| -e TZ | Timezone (Default: Australia/Melbourne)
+| -v /config | Configuration directory
+| -v /videos | Videos base directory
 
-Example to run inside an existing pod:
+Example build and run inside a pod:
 ```shell script
 TZ=Australia/Melbourne
 PUID=1001
 PGID=1001
+
+sudo podman build -t deluge .
 
 sudo podman run \
     --pod video \
