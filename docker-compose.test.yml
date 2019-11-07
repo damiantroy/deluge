@@ -1,3 +1,3 @@
 sut:
   build: .
-  command: test.sh -t 15 -u http://localhost:8112/ -e "<title>Deluge"
+  command: test.sh
