@@ -1,3 +1,7 @@
 sut:
   build: .
-  command: /usr/local/bin/test.sh -t 60 -u http://localhost:8112 -e Deluge
+  command: /usr/local/bin/test.sh -t 60 -u http://deluge:8112 -e Deluge
+  links:
+    - deluge
+deluge:
+  build: .
