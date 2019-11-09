@@ -1,21 +1,6 @@
 #!/usr/bin/env bash
 #set -x
 
-echo "*** Start debug test.sh"
-
-echo "id"
-id
-
-echo "ls -la /tmp"
-ls -la /tmp
-
-echo "ls -la /config"
-ls -la /config
-
-echo "mount"
-mount
-
-echo "*** End debug test.sh"
 
 function usage() {
     echo "Usage: $0 -t <timeout> -u <url> [-e <expect_string>]"
