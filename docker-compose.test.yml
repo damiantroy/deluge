@@ -1,12 +1,7 @@
 sut:
   build: .
-  links:
-    - deluge
+  volumes:
+    - .:/config
   command: >
     sh -c "/usr/local/bin/start.sh &
            /usr/local/bin/test.sh -t 60 -u http://deluge:8112 -e Deluge"
-
-deluge:
-  build: .
-  ports:
-    - "8112:8112"
