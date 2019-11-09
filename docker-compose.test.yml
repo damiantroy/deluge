@@ -4,9 +4,9 @@ services:
   sut:
     image: damiantroy/deluge:${CACHE_TAG}
     volumes:
-      - config_volume:/config
+      - sut_config:/config
     networks:
-      - default_network
+      - default
     depends_on:
       - deluge
     command: /usr/local/bin/test.sh -t 60 -u http://deluge:8112 -e Deluge
@@ -14,19 +14,22 @@ services:
   deluge:
     image: damiantroy/deluge:${CACHE_TAG}
     volumes:
-      - config_volume:/config
+      - deluge_config:/config
     networks:
-      - default_network
+      - default
     ports:
       - "8112:8112"
 
 networks:
-  default_network:
+  default:
     driver: bridge
 
 volumes:
-  config_volume:
+  sut_config:
     driver_opts:
       type: tmpfs
       device: tmpfs
-
+  deluge_config:
+    driver_opts:
+      type: tmpfs
+      device: tmpfs
