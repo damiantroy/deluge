@@ -12,7 +12,7 @@ services:
     command: /usr/local/bin/test.sh -t 60 -u http://deluge:8112 -e Deluge
 
   deluge:
-    build: .
+    image: damiantroy/deluge:${CACHE_TAG}
     volumes:
       - config:/config
     networks:
