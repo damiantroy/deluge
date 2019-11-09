@@ -9,7 +9,6 @@ ENV PUID=1001
 ENV PGID=1001
 RUN groupadd -g ${PGID} videos && \
     useradd -u ${PUID} -g videos -d /config -M videos
-RUN chown -R videos:videos /config
 ENV TZ=Australia/Melbourne
 COPY test.sh /usr/local/bin/
 

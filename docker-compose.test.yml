@@ -4,7 +4,7 @@ services:
   sut:
     image: damiantroy/deluge:${CACHE_TAG}
     volumes:
-      - config:/config
+      - /config
     networks:
       - default_network
     depends_on:
@@ -14,14 +14,11 @@ services:
   deluge:
     image: damiantroy/deluge:${CACHE_TAG}
     volumes:
-      - config:/config
+      - /config
     networks:
       - default_network
     ports:
       - "8112:8112"
-
-volumes:
-  config: {}
 
 networks:
   default_network:
