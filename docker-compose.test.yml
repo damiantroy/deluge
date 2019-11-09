@@ -4,7 +4,7 @@ services:
   sut:
     image: damiantroy/deluge:${CACHE_TAG}
     volumes:
-      - /config
+      - config_volume:/config
     networks:
       - default_network
     depends_on:
@@ -14,7 +14,7 @@ services:
   deluge:
     image: damiantroy/deluge:${CACHE_TAG}
     volumes:
-      - /config
+      - config_volume:/config
     networks:
       - default_network
     ports:
@@ -23,4 +23,10 @@ services:
 networks:
   default_network:
     driver: bridge
+
+volumes:
+  config_volume:
+    driver_opts:
+      type: tmpfs
+      device: tmpfs
 

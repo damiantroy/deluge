@@ -8,7 +8,7 @@ VOLUME /config
 ENV PUID=1001
 ENV PGID=1001
 RUN groupadd -g ${PGID} videos && \
-    useradd -u ${PUID} -g videos -d /config -M videos
+    useradd --no-log-init -u ${PUID} -g videos -d /config -M videos
 ENV TZ=Australia/Melbourne
 COPY test.sh /usr/local/bin/
 

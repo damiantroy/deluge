@@ -2,12 +2,19 @@
 #set -x
 
 echo "*** Start debug test.sh"
+
 echo "id"
 id
+
+echo "ls -la /tmp"
+ls -la /tmp
+
 echo "ls -la /config"
 ls -la /config
-echo "df -h"
-df -h
+
+echo "mount"
+mount
+
 echo "*** End debug test.sh"
 
 function usage() {
