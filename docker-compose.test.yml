@@ -4,4 +4,4 @@ sut:
     - .:/config
   command: >
     sh -c "/usr/local/bin/start.sh &
-           /usr/local/bin/test.sh -t 60 -u http://deluge:8112 -e Deluge"
+           /usr/local/bin/test.sh -t 60 -u http://localhost:8112 -e Deluge"

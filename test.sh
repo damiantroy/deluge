@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 #set -x
 
+echo "*** Start debug"
+id
+ls -la /config
+echo "*** End debug"
 
 function usage() {
     echo "Usage: $0 -t <timeout> -u <url> [-e <expect_string>]"
