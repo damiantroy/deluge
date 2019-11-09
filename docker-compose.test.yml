@@ -1,12 +1,29 @@
-sut:
-  build: .
-  links:
-    - deluge
-  command: /usr/local/bin/test.sh -t 60 -u http://deluge:8112 -e Deluge
+version: '3.7'
 
-deluge:
-  build: .
-  volumes:
-    - /tmp/deluge:/config
-  ports:
-    - "8112:8112"
+services:
+  sut:
+    image: damiantroy/deluge:${CACHE_TAG}
+    volumes:
+      - config:/config
+    networks:
+      - default_network
+    depends_on:
+      - deluge
+    command: /usr/local/bin/test.sh -t 60 -u http://deluge:8112 -e Deluge
+
+  deluge:
+    build: .
+    volumes:
+      - config:/config
+    networks:
+      - default_network
+    ports:
+      - "8112:8112"
+
+volumes:
+  config: {}
+
+networks:
+  default_network:
+    driver: bridge
+
