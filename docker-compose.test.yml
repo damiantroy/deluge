@@ -7,6 +7,6 @@ sut:
 deluge:
   build: .
   volumes:
-    - .:/config
+    - /tmp/deluge:/config
   ports:
     - "8112:8112"
