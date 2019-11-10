@@ -1,34 +1,15 @@
-version: '3.6'
+version: "3.6"
 
 services:
   sut:
     image: damiantroy/deluge:${CACHE_TAG}
     volumes:
-      - sut_config:/config
-    networks:
-      - default
-    depends_on:
-      - deluge
-    command: /usr/local/bin/test.sh -t 60 -u http://deluge:8112 -e Deluge
-
-  deluge:
-    image: damiantroy/deluge:${CACHE_TAG}
-    volumes:
       - deluge_config:/config
-    networks:
-      - default
-    ports:
-      - "8112:8112"
-
-networks:
-  default:
-    driver: bridge
+    command: >
+      bash -c "/usr/local/bin/start.sh &
+               /usr/local/bin/test.sh -t 60 -u http://deluge:8112 -e Deluge"
 
 volumes:
-  sut_config:
-    driver_opts:
-      type: tmpfs
-      device: tmpfs
   deluge_config:
     driver_opts:
       type: tmpfs
