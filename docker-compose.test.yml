@@ -7,7 +7,7 @@ services:
       - deluge_config:/config
     command: >
       bash -c "/usr/local/bin/start.sh &
-               /usr/local/bin/test.sh -t 60 -u http://localhost:8112/ -e Deluge"
+               /usr/local/bin/test.sh -t 30 -u http://localhost:8112/ -e Deluge"
 
 volumes:
   deluge_config:
